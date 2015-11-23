@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season_id: 1
+  air_date: 2015-11-23 11:27:54
+  survivor_count: 1
+  published: false
+  aired: false
+
+two:
+  season_id: 1
+  air_date: 2015-11-23 11:27:54
+  survivor_count: 1
+  published: false
+  aired: false

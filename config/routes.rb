@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :episodes, except: [:new, :edit]
   resources :leagues, except: [:new, :edit]
   devise_for :users
   resources :seasons, except: [:new, :edit]
