@@ -30,8 +30,6 @@ class SeasonsController < ApplicationController
   # PATCH/PUT /seasons/1
   # PATCH/PUT /seasons/1.json
   def update
-    @season = Season.find(params[:id])
-
     if @season.update(season_params)
       head :no_content
     else

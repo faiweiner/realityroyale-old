@@ -30,8 +30,6 @@ class ShowsController < ApplicationController
   # PATCH/PUT /shows/1
   # PATCH/PUT /shows/1.json
   def update
-    @show = Show.find(params[:id])
-
     if @show.update(show_params)
       head :no_content
     else

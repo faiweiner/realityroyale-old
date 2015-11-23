@@ -8,17 +8,6 @@ League.destroy_all
 Elimination.destroy_all
 Fantasy.destroy_all
 
-# ===== USERS & ADMIN ===== #
-t_user1 = User.create!(
-	email: 'test@email.com',
-	password: 'chicken1234',
-	password_confirmation: 'chicken1234')
-t_admin1 = User.create!(
-	email: 'admin@email.com',
-	password: 'chicken1234',
-	password_confirmation: 'chicken1234',
-	admin: true)
-
 # ===== SHOWS & SEASONS ===== #
 test_show = Show.create(
 	name: 'Test Show', 
