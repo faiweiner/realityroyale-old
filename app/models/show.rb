@@ -13,4 +13,5 @@
 
 class Show < ActiveRecord::Base
 	has_many :seasons, inverse_of: :show, dependent: :destroy
+	has_many :episodes, through: :seasons
 end
