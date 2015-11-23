@@ -25,3 +25,10 @@ gem 'sqlite3'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development, :test do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'railroady'
+  gem 'shoulda-matchers'			# help with associations
+end

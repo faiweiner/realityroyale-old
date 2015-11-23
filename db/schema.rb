@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123195144) do
+ActiveRecord::Schema.define(version: 20151123200216) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151123195144) do
   create_table "contestants_seasons", id: false, force: true do |t|
     t.integer "contestant_id"
     t.integer "season_id"
+    t.string  "status"
   end
 
   create_table "country_codes", force: true do |t|
