@@ -1,6 +1,7 @@
 class CreateLeagues < ActiveRecord::Migration
 	def change
 		create_table :leagues do |t|
+			t.integer		:creator_id, null: false
 			t.string 		:name
 			t.integer 	:season_id
 			t.string 		:type

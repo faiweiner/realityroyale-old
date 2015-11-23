@@ -16,10 +16,10 @@
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
+#  admin                  :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  admin                  :boolean          default(FALSE)
-#  lifetime_score         :integer
+#  lifetime_score         :integer          default(0)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

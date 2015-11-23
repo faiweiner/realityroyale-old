@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123200216) do
+ActiveRecord::Schema.define(version: 20151123202152) do
+
+  create_table "commissioners_leagues", id: false, force: true do |t|
+    t.integer "league_id"
+    t.integer "user_id"
+  end
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -30,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151123200216) do
     t.integer "contestant_id"
     t.integer "season_id"
     t.string  "status"
+    t.boolean "active",        default: true
   end
 
   create_table "country_codes", force: true do |t|
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151123200216) do
   end
 
   create_table "leagues", force: true do |t|
+    t.integer  "creator_id",                      null: false
     t.string   "name"
     t.integer  "season_id"
     t.string   "type"
@@ -107,10 +114,10 @@ ActiveRecord::Schema.define(version: 20151123200216) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "admin",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                  default: false
-    t.integer  "lifetime_score"
+    t.integer  "lifetime_score",         default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

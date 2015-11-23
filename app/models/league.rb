@@ -3,6 +3,7 @@
 # Table name: leagues
 #
 #  id              :integer          not null, primary key
+#  creator_id      :integer          not null
 #  name            :string(255)
 #  season_id       :integer
 #  type            :string(255)
