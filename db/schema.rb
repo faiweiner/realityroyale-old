@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123192754) do
+ActiveRecord::Schema.define(version: 20151123195144) do
+
+  create_table "contestants", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "occupation"
+    t.text     "description"
+    t.boolean  "active",      default: false, null: false
+    t.boolean  "published",   default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contestants_seasons", id: false, force: true do |t|
+    t.integer "contestant_id"
+    t.integer "season_id"
+  end
 
   create_table "country_codes", force: true do |t|
     t.string "name", null: false
