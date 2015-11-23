@@ -27,4 +27,6 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :confirmable, :omniauthable,
 				 :recoverable, :rememberable, :trackable, :validatable
+
+	has_and_belongs_to_many :leagues, inverse_of: :users
 end

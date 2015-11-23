@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123191626) do
+ActiveRecord::Schema.define(version: 20151123192111) do
 
   create_table "country_codes", force: true do |t|
     t.string "name", null: false
+  end
+
+  create_table "leagues", force: true do |t|
+    t.string   "name"
+    t.integer  "season_id"
+    t.string   "type"
+    t.integer  "participant_cap"
+    t.integer  "draft_limit"
+    t.datetime "draft_date"
+    t.string   "draft_order"
+    t.string   "league_key"
+    t.string   "league_password"
+    t.boolean  "private",         default: false, null: false
+    t.boolean  "active",          default: false, null: false
+    t.boolean  "published",       default: false, null: false
+    t.boolean  "full",            default: false, null: false
+    t.boolean  "locked",          default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", force: true do |t|
