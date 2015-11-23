@@ -61,7 +61,6 @@ GEM
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
-    railroady (1.4.1)
     rails (4.1.4)
       actionmailer (= 4.1.4)
       actionpack (= 4.1.4)
@@ -109,7 +108,6 @@ DEPENDENCIES
   binding_of_caller
   devise
   omniauth
-  railroady
   rails (= 4.1.4)
   rails-api
   shoulda-matchers

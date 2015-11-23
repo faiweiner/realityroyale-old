@@ -29,6 +29,5 @@ gem 'sqlite3'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'railroady'
   gem 'shoulda-matchers'			# help with associations
 end
