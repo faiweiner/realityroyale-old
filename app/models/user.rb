@@ -19,6 +19,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  admin                  :boolean          default(FALSE)
+#  lifetime_score         :integer
 #
 
 class User < ActiveRecord::Base
