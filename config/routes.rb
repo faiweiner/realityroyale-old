@@ -1,4 +1,10 @@
 RrApi::Application.routes.draw do
+
+	# Api definition
+	namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
+		# We are going to list our resources here
+	end
+
 	devise_for :users
 	resources :contestants, except: [:new, :edit]
 	resources :episodes, except: [:new, :edit]
