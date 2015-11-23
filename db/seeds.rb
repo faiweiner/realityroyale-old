@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Show.destroy_all
+Season.destroy_all
+
+User.destroy_all
+
+# reset leagues
+League.destroy_all
+Elimination.destroy_all
+Fantasy.destroy_all
+
+# ===== USERS & ADMIN ===== #
+t_user1 = User.create!(
+	email: 'test@email.com',
+	password: 'chicken1234',
+	password_confirmation: 'chicken1234')
+t_admin1 = User.create!(
+	email: 'admin@email.com',
+	password: 'chicken1234',
+	password_confirmation: 'chicken1234',
+	admin: true)
+
+# ===== SHOWS & SEASONS ===== #
+test_show = Show.create(
+	name: 'Test Show', 
+	image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRgiSJFsKMZnMZ8T1GVyTRWsQUUvAwL3cXyqtTGEpFkEPE4DnhAFnrtmlrQ',
+	active: true,
+	published: false)
+
+test_season = Season.create(
+	name: 'Test Season',
+	number: 1,
+	show_id: 1,
+	country_origin: 1)

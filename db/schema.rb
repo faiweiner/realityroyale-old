@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123202152) do
-
-  create_table "commissioners_leagues", id: false, force: true do |t|
-    t.integer "league_id"
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 20151123231033) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -36,10 +31,6 @@ ActiveRecord::Schema.define(version: 20151123202152) do
     t.integer "season_id"
     t.string  "status"
     t.boolean "active",        default: true
-  end
-
-  create_table "country_codes", force: true do |t|
-    t.string "name", null: false
   end
 
   create_table "episodes", force: true do |t|
@@ -70,6 +61,12 @@ ActiveRecord::Schema.define(version: 20151123202152) do
     t.boolean  "locked",          default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "leagues_users", id: false, force: true do |t|
+    t.integer "league_id"
+    t.integer "user_id"
+    t.boolean "commissioner", default: false
   end
 
   create_table "seasons", force: true do |t|
