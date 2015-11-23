@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :seasons, except: [:new, :edit]
   resources :shows, except: [:new, :edit]
   # The priority is based upon order of creation: first created -> highest priority.
