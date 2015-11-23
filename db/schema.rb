@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123174615) do
+ActiveRecord::Schema.define(version: 20151123181419) do
+
+  create_table "seasons", force: true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.integer  "show_id"
+    t.integer  "country_origin"
+    t.string   "type"
+    t.text     "description"
+    t.string   "image"
+    t.string   "website"
+    t.integer  "network"
+    t.datetime "premiere_date"
+    t.datetime "finale_date"
+    t.integer  "episode_count"
+    t.boolean  "active",         default: false
+    t.boolean  "published",      default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "shows", force: true do |t|
     t.string   "name"

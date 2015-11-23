@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: seasons
+#
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  number         :integer
+#  show_id        :integer
+#  country_origin :integer
+#  type           :string(255)
+#  description    :text
+#  image          :string(255)
+#  website        :string(255)
+#  network        :integer
+#  premiere_date  :datetime
+#  finale_date    :datetime
+#  episode_count  :integer
+#  active         :boolean          default(FALSE)
+#  published      :boolean          default(FALSE)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number: 1
+  show_id: 1
+  country_origin: 1
+  type: 
+  description: MyText
+  image: MyString
+  website: MyString
+  network: 1
+  premiere_date: 2015-11-23 10:14:19
+  finale_date: 2015-11-23 10:14:19
+  episode_count: 1
+  active: false
+  published: false
+
+two:
+  name: MyString
+  number: 1
+  show_id: 1
+  country_origin: 1
+  type: 
+  description: MyText
+  image: MyString
+  website: MyString
+  network: 1
+  premiere_date: 2015-11-23 10:14:19
+  finale_date: 2015-11-23 10:14:19
+  episode_count: 1
+  active: false
+  published: false
