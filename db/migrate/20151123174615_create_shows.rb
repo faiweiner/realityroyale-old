@@ -4,6 +4,7 @@ class CreateShows < ActiveRecord::Migration
 			t.string 			:name
 			t.string 			:image
 			t.boolean 		:active, default: false
+			t.boolean			:published, default: false
 			t.timestamps 	null: false
 		end
 	end

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20151123174615) do
     t.string   "name"
     t.string   "image"
     t.boolean  "active",     default: false
+    t.boolean  "published",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
