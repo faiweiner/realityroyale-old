@@ -27,7 +27,13 @@ gem 'sqlite3'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'shoulda-matchers'			# help with associations
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'shoulda-matchers'			# help with associations
+end
+
+group :test do
+	gem 'rspec-rails', '~> 2.14'
+	gem 'factory_girl_rails'
+	gem 'ffaker'
 end
