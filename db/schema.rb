@@ -44,21 +44,21 @@ ActiveRecord::Schema.define(version: 20151124010146) do
   end
 
   create_table "leagues", force: true do |t|
-    t.integer  "creator_id",                      null: false
+    t.integer  "creator_id",                        null: false
     t.string   "name"
     t.integer  "season_id"
     t.string   "type"
-    t.integer  "participant_cap"
+    t.integer  "participation_cap"
     t.integer  "draft_limit"
     t.datetime "draft_date"
     t.string   "draft_order"
     t.string   "league_key"
     t.string   "league_password"
-    t.boolean  "private_access",  default: false, null: false
-    t.boolean  "active",          default: false, null: false
-    t.boolean  "published",       default: false, null: false
-    t.boolean  "full",            default: false, null: false
-    t.boolean  "locked",          default: false, null: false
+    t.boolean  "private_access",    default: false, null: false
+    t.boolean  "active",            default: false, null: false
+    t.boolean  "published",         default: false, null: false
+    t.boolean  "full",              default: false, null: false
+    t.boolean  "locked",            default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

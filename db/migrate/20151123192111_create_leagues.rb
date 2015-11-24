@@ -5,7 +5,7 @@ class CreateLeagues < ActiveRecord::Migration
 			t.string 		:name
 			t.integer 	:season_id
 			t.string 		:type
-			t.integer 	:participant_cap
+			t.integer 	:participation_cap
 			t.integer 	:draft_limit
 			t.datetime 	:draft_date
 			t.string 		:draft_order
