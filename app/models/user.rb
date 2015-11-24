@@ -28,5 +28,6 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, :confirmable, :omniauthable,
 				 :recoverable, :rememberable, :trackable, :validatable
 
-	has_and_belongs_to_many :leagues, inverse_of: :users
+	has_many :participations
+	has_many :leagues, through: :participations
 end

@@ -35,6 +35,14 @@ league1 = Fantasy.create(
 	league_key: nil,
 	league_password: nil)
 
+participant1 = Participation.create(
+	league_id: league1.id,
+	user_id: u1.id,
+	commissioner: true)
+participant2 = Participation.create(
+	league_id: league1.id,
+	user_id: u2.id)
+
 league2 = Elimination.create(
 	creator_id: u1.id, 
 	name: 'Test Public Elimination League', 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123231033) do
+ActiveRecord::Schema.define(version: 20151124010146) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -63,10 +63,12 @@ ActiveRecord::Schema.define(version: 20151123231033) do
     t.datetime "updated_at"
   end
 
-  create_table "leagues_users", id: false, force: true do |t|
-    t.integer "league_id"
-    t.integer "user_id"
-    t.boolean "commissioner", default: false
+  create_table "participations", force: true do |t|
+    t.integer  "league_id"
+    t.integer  "user_id"
+    t.boolean  "commissioner", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", force: true do |t|
