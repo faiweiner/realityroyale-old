@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20151123231033) do
     t.string   "draft_order"
     t.string   "league_key"
     t.string   "league_password"
-    t.boolean  "private",         default: false, null: false
+    t.boolean  "private_access",  default: false, null: false
     t.boolean  "active",          default: false, null: false
     t.boolean  "published",       default: false, null: false
     t.boolean  "full",            default: false, null: false

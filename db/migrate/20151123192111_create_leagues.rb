@@ -11,7 +11,7 @@ class CreateLeagues < ActiveRecord::Migration
 			t.string 		:draft_order
 			t.string 		:league_key
 			t.string 		:league_password
-			t.boolean 	:private, null: false, default: false
+			t.boolean 	:private_access, null: false, default: false
 			t.boolean 	:active, null: false, default: false
 			t.boolean 	:published, null: false, default: false
 			t.boolean 	:full, null: false, default: false

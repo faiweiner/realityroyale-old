@@ -13,7 +13,7 @@
 #  draft_order     :string(255)
 #  league_key      :string(255)
 #  league_password :string(255)
-#  private         :boolean          default(FALSE), not null
+#  private_access  :boolean          default(FALSE), not null
 #  active          :boolean          default(FALSE), not null
 #  published       :boolean          default(FALSE), not null
 #  full            :boolean          default(FALSE), not null
