@@ -1,4 +1,4 @@
-# == Schema Information
+a# == Schema Information
 #
 # Table name: shows
 #

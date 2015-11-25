@@ -14,17 +14,15 @@
 
 class Participant < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
-	
+
 	belongs_to :user
 	belongs_to :league, inverse_of: :participants
 	has_many :rounds, inverse_of: :participant, dependent: :destroy
 
 	# -- Favorites -- #
 	def fetch_favorites(user_id)
-		favorite_count = 0
-		favorite_leagues = []
-		
-		favorite_leagues = Participant.where(user_id: user_id, favorite: true)
+		favorite_leagues = self.where(user_id: user_id, favorite: true)
+		return favorite_leagues
 	end
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #

@@ -1,59 +1,73 @@
 class LeaguesController < ApplicationController
-  before_action :set_league, only: [:show, :update, :destroy]
+	before_action :set_league, only: [:show, :update, :destroy]
 
-  # GET /leagues
-  # GET /leagues.json
-  def index
-    @leagues = League.all
+	# GET /leagues
+	# GET /leagues.json
+	def index
+		@leagues = League.all
+		render json: @leagues
+	end
 
-    render json: @leagues
-  end
+	# GET /leagues/fantasy
+	# GET /leagues/fantasy.json
+	def index
+		@leagues = Fantasy.where(private_access: false, active: true, published: true, full:false, locked:false)
+		render json: @leagues
+	end
 
-  # GET /leagues/1
-  # GET /leagues/1.json
-  def show
-    render json: @league
-  end
+	# GET /leagues/elimination
+	# GET /leagues/elimination.json
+	def index
+		@leagues = Elimination.where(private_access: false, active: true, published: true, full:false, locked:false)
+		render json: @leagues
+	end
+	
 
-  # POST /leagues
-  # POST /leagues.json
-  def create
-    @league = League.new(league_params)
+	# GET /leagues/1
+	# GET /leagues/1.json
+	def show
+		render json: @league
+	end
 
-    if @league.save
-      render json: @league, status: :created, location: @league
-    else
-      render json: @league.errors, status: :unprocessable_entity
-    end
-  end
+	# POST /leagues
+	# POST /leagues.json
+	def create
+		@league = League.new(league_params)
 
-  # PATCH/PUT /leagues/1
-  # PATCH/PUT /leagues/1.json
-  def update
-    @league = League.find(params[:id])
+		if @league.save
+			render json: @league, status: :created, location: @league
+		else
+			render json: @league.errors, status: :unprocessable_entity
+		end
+	end
 
-    if @league.update(league_params)
-      head :no_content
-    else
-      render json: @league.errors, status: :unprocessable_entity
-    end
-  end
+	# PATCH/PUT /leagues/1
+	# PATCH/PUT /leagues/1.json
+	def update
+		@league = League.find(params[:id])
 
-  # DELETE /leagues/1
-  # DELETE /leagues/1.json
-  def destroy
-    @league.destroy
+		if @league.update(league_params)
+			head :no_content
+		else
+			render json: @league.errors, status: :unprocessable_entity
+		end
+	end
 
-    head :no_content
-  end
+	# DELETE /leagues/1
+	# DELETE /leagues/1.json
+	def destroy
+		@league.destroy
 
-  private
+		head :no_content
+	end
 
-    def set_league
-      @league = League.find(params[:id])
-    end
+	private
 
-    def league_params
-      params.require(:league).permit(:name, :season_id, :type, :participation_cap, :draft_limit, :draft_date, :draft_order, :league_key, :league_password, :private, :active, :published, :full, :locked)
-    end
+		def set_league
+			@league = League.find(params[:id])
+		end
+
+		def league_params
+			params.require(:league).permit(:name, :season_id, :type, :participation_cap, :draft_limit, :draft_date, :draft_order, :league_key, :league_password, :private, :active, :published, :full, :locked)
+		end
 end

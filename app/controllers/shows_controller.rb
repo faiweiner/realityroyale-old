@@ -4,8 +4,7 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
-
+    @shows = Show.where(active:true, published:true)
     render json: @shows
   end
 
