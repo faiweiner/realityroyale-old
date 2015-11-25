@@ -2,6 +2,7 @@ require 'api_constraints'
 
 RrApi::Application.routes.draw do
 
+  resources :participants, except: [:new, :edit]
   resources :participations, except: [:new, :edit]
 	# Api definition
 	namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do

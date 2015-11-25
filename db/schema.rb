@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124010146) do
+ActiveRecord::Schema.define(version: 20151125002917) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20151124010146) do
     t.boolean  "published",         default: false, null: false
     t.boolean  "full",              default: false, null: false
     t.boolean  "locked",            default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participants", force: true do |t|
+    t.integer  "league_id",                    null: false
+    t.integer  "user_id",                      null: false
+    t.boolean  "commissioner", default: false
+    t.integer  "score",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
