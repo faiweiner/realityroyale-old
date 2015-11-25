@@ -26,9 +26,9 @@ class Participant < ActiveRecord::Base
 	def create_rounds
 		self.league.season.episodes.each do |episode|
 			case self.league.type
-			when "Fantasy"
+			when 'Fantasy'
 				puts "fantasy round (episode #{episode}) for league #{self.league.name} for #{self.user.email}!"
-			when "Elimination"
+			when 'Elimination'
 				puts "elimination round (episode #{episode}) for league #{self.league.name} for #{self.user.email}!"
 			end
 		end

@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe ParticipantsController do
   describe "routing" do
@@ -12,23 +12,27 @@ describe ParticipantsController do
     end
 
     it "routes to #show" do
-      get("/participants/1").should route_to("participants#show", :id => "1")
+      get("/participants/1").should route_to("participants#show", id: 1)
     end
 
     it "routes to #edit" do
-      get("/participants/1/edit").should route_to("participants#edit", :id => "1")
+      get("/participants/1/edit").should route_to("participants#edit", id: 1)
     end
 
     it "routes to #create" do
       post("/participants").should route_to("participants#create")
     end
 
+    it "routes to #create_rounds" do
+      post("/participants/1/rounds").should route_to("participants#create_rounds", id: 1)
+    end
+
     it "routes to #update" do
-      put("/participants/1").should route_to("participants#update", :id => "1")
+      put("/participants/1").should route_to("participants#update", id: 1)
     end
 
     it "routes to #destroy" do
-      delete("/participants/1").should route_to("participants#destroy", :id => "1")
+      delete("/participants/1").should route_to("participants#destroy", id: 1)
     end
 
   end

@@ -2,6 +2,7 @@ require 'api_constraints'
 
 RrApi::Application.routes.draw do
 
+  resources :shows, except: [:new, :edit]
   resources :rounds, except: [:new, :edit]
   resources :participants, except: [:new, :edit]
 	get		'participants/:id/rounds' => 'participants#show_rounds', as: :participant_show_rounds

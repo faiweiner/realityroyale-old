@@ -64,9 +64,12 @@ describe ParticipantsController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Participant" do
-        expect {
+        expect(
           post :create, {:participant => valid_attributes}, valid_session
-        }.to change(Participant, :count).by(1)
+        ).to change(Participant, :count).by(1)
+        expect(
+          response.status
+        ).to eq 200
       end
 
       it "assigns a newly created participant as @participant" do
@@ -98,6 +101,13 @@ describe ParticipantsController do
     end
   end
 
+  describe "POST create_rounds" do
+    describe "with valid params" do   
+      it "creates new rounds" do
+        expect {}
+      end
+    end 
+  end
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested participant" do

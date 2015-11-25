@@ -4,6 +4,7 @@ gem 'rails', '4.1.4'
 
 gem 'rails-api'
 
+
 gem 'spring', :group => :development
 
 gem 'devise'
@@ -16,6 +17,8 @@ gem 'sqlite3'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
+# Replaces jbuilder to serialize JSON responses
+gem 'active_model_serializers'
 
 # Use unicorn as the app server
 # gem 'unicorn'
