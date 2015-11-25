@@ -1,4 +1,4 @@
-a# == Schema Information
+# == Schema Information
 #
 # Table name: shows
 #
@@ -14,6 +14,7 @@ a# == Schema Information
 class Show < ActiveRecord::Base
 	has_many :seasons, inverse_of: :show, dependent: :destroy
 	has_many :episodes, through: :seasons
+	has_many :schemes, inverse_of: :show
 
 	# -- Validations on create -- #
 	validates :name, presence: true, on: :create

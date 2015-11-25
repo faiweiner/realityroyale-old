@@ -30,9 +30,9 @@ class League < ActiveRecord::Base
 	has_many :users, through: :participants
 
 	# -- Updates -- #
-	before_save :set_league_key_pw, :set_draft_limit
+	before_save :set_league_key_pw
 	after_save :add_commissioner_participation
-	after_initialize :toggle_full_field
+	after_initialize :check_capacity
 
 	# -- Validations on create -- #
 	validates :name, presence: true, length: {minimum: 3}, on: :create
@@ -76,6 +76,14 @@ class League < ActiveRecord::Base
 		return response
 	end
 
+	# -- Dropdowns -- #
+	def league_types_for_select
+		types = [
+			['Elimination', 'Fantasy'],
+			['Elimination', 'Elimination']
+		]
+	end
+		
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #
 	# ========================================================== #
@@ -131,6 +139,8 @@ class League < ActiveRecord::Base
 	end
 
 	def set_draft_limit
+		# FIXME!
+		raise "holla Fantasy got me here."
 		if participation_cap != nil
 			gen_draft_limit
 		end
@@ -138,7 +148,7 @@ class League < ActiveRecord::Base
 
 	# ~~ Updating ~~ #
 
-	def toggle_full_field
+	def check_capacity
 		unless self.participation_cap.nil?	# proceed if the league's participation cap exists
 			puts 'Checking if league is full...'
 			puts participation_status

@@ -19,6 +19,8 @@ class Participant < ActiveRecord::Base
 	belongs_to :league, inverse_of: :participants
 	has_many :rounds, inverse_of: :participant, dependent: :destroy
 
+	validates_uniqueness_of :user_id, scope: :league_id
+	
 	# -- Favorites -- #
 	def fetch_favorites(user_id)
 		favorite_leagues = self.where(user_id: user_id, favorite: true)

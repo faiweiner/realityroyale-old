@@ -23,6 +23,8 @@
 #
 
 class Fantasy < League
+	before_save :set_draft_limit
+	
 	def self.model_name
 		League.model_name
 	end

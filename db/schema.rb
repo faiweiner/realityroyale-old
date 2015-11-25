@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125162857) do
+ActiveRecord::Schema.define(version: 20151125221745) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 20151125162857) do
     t.integer  "league_id",                    null: false
     t.integer  "user_id",                      null: false
     t.boolean  "commissioner", default: false
+    t.boolean  "favorite",     default: false
     t.integer  "score",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "favorite",     default: false
   end
 
   create_table "rounds", force: true do |t|
@@ -79,6 +79,17 @@ ActiveRecord::Schema.define(version: 20151125162857) do
     t.integer  "episode_id",                     null: false
     t.integer  "score",          default: 0
     t.boolean  "locked",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schemes", force: true do |t|
+    t.integer  "show_id",                     null: false
+    t.string   "type",                        null: false
+    t.string   "description",                 null: false
+    t.integer  "points",      default: 0,     null: false
+    t.boolean  "active",      default: false
+    t.boolean  "published",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
