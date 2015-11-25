@@ -20,9 +20,11 @@
 #  locked            :boolean          default(FALSE), not null
 #  created_at        :datetime
 #  updated_at        :datetime
-#
+
 
 class League < ActiveRecord::Base
+	include ModelHelper 	# access to toggle models
+
 	belongs_to :season, inverse_of: :leagues
 	has_many :participants, inverse_of: :league, dependent: :destroy
 	has_many :users, through: :participants
