@@ -72,14 +72,6 @@ ActiveRecord::Schema.define(version: 20151125002917) do
     t.datetime "updated_at"
   end
 
-  create_table "participations", force: true do |t|
-    t.integer  "league_id"
-    t.integer  "user_id"
-    t.boolean  "commissioner", default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "seasons", force: true do |t|
     t.string   "name"
     t.integer  "number"

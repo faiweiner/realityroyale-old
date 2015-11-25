@@ -3,7 +3,7 @@ Season.destroy_all
 
 User.destroy_all
 League.destroy_all
-Participation.destroy_all
+Participant.destroy_all
 
 # ===== USERS ===== #
 u1 = User.create({email: "sally@example.com", password: "aaaaaaaa", password_confirmation: "aaaaaaaa"})
@@ -55,7 +55,7 @@ league3 = Elimination.create(
 participant_ids = [u2.id, u3.id]
 
 participant_ids.each do |id|
-	Participation.create(league_id: league1.id, user_id: id)
+	Participant.create(league_id: league1.id, user_id: id)
 end
 
 # ====== EPISODES ===== #

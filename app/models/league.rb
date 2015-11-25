@@ -24,8 +24,8 @@
 
 class League < ActiveRecord::Base
 	belongs_to :season, inverse_of: :leagues
-	has_many :participations
-	has_many :users, through: :participations
+	has_many :participants
+	has_many :users, through: :participants
 
 	# -- Updates -- #
 	before_save :set_league_key_pw, :set_draft_limit
@@ -62,14 +62,14 @@ class League < ActiveRecord::Base
 		self.update!(locked: false)
 	end
 
-	# -- Participation Methods -- #
+	# -- Participants Methods -- #
 	def get_commissioners
-		commissioners = self.participations.where(commissioner: true)
+		commissioners = self.participants.where(commissioner: true)
 	end
 
 	def add_new_commissioner(user_id)
 		response = nil
-		user = self.participations.select{|key| key.user_id == user_id }[0]
+		user = self.participants.select{|key| key.user_id == user_id }[0]
 		if user.present?
 			if user.commissioner == false
 				user.update(commissioner: true)
@@ -107,11 +107,11 @@ class League < ActiveRecord::Base
 		end
 	end	
 
-	# ~~ Participation ~~ #
+	# ~~ Participants ~~ #
 
 	def add_commissioner_participation 	# ON LEAGUE INITIALIZATION ONLY!
 		league_id = self.id
-		Participation.create(league_id: league_id, user_id: self.creator_id, commissioner: true) unless self.participations.where(user_id: creator_id).exists?
+		Participant.create(league_id: league_id, user_id: self.creator_id, commissioner: true) unless self.participants.where(user_id: creator_id).exists?
 	end
 
 	def participation_status
@@ -119,10 +119,10 @@ class League < ActiveRecord::Base
 		status = nil
 
 		if self.id.nil?	# new league, not yet saved, no participant yet
-			available_spots = self.participation_cap - self.participations.count + 1
+			available_spots = self.participation_cap - self.participants.count + 1
 			status = 'new league'
 		else # existing league
-			available_spots = self.participation_cap - self.participations.count
+			available_spots = self.participation_cap - self.participants.count
 			status = 'open' if available_spots > 0
 			status = 'full' if available_spots == 0
 		end
