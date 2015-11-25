@@ -29,4 +29,11 @@ module ModelHelper
 		when true; self.update!(locked: false)
 		end
 	end
+
+	def toggle_favorite_field
+		case self.favorite
+		when false; self.update!(favorite: true) 
+		when true; self.update!(favorite: false)
+		end
+	end
 end

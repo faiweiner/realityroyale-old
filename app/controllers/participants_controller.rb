@@ -1,4 +1,5 @@
 class ParticipantsController < ApplicationController
+	include ModelHelper 	# access to toggle modules
 	before_action :set_participant, only: [:show, :show_rounds, :create_rounds, :update, :destroy]
 
 	# GET /participants

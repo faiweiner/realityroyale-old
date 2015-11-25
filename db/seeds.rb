@@ -63,7 +63,6 @@ league3 = Elimination.create(
 	private_access: true)
 
 participant_ids = [u2.id, u3.id]
-
 participant_ids.each do |id|
 	Participant.create(league_id: league1.id, user_id: id)
 end
