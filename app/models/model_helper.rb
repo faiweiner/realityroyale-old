@@ -1,5 +1,10 @@
 module ModelHelper
+	# FIXME! Restrict modules to league's commissioner only!
+	
 	# -- Toggling boolean attributes --#
+
+	# Contestant, Elimination, Fantasy, League, Season and Show
+	# FIXME! Restrict method to above models only.
 	def toggle_active_field
 		case self.active
 		when false; self.update!(active: true)
@@ -7,6 +12,8 @@ module ModelHelper
 		end
 	end
 
+	# Contestant, Elimination, Fantasy, League, Season and Show
+	# FIXME! Restrict method to above models only.
 	def toggle_published_field
 		case self.published
 		when false; self.update!(published: true) 
@@ -14,6 +21,8 @@ module ModelHelper
 		end
 	end
 
+	# Elimination, Fantasy, League, Roster, Round
+	# FIXME! Restrict method to above models only.
 	def toggle_locked_field
 		case self.locked
 		when false; self.update!(locked: true) 

@@ -17,5 +17,4 @@ class Show < ActiveRecord::Base
 
 	# -- Validations on create -- #
 	validates :name, presence: true, on: :create
-
 end

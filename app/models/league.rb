@@ -55,15 +55,6 @@ class League < ActiveRecord::Base
 	def self.search_by_show_name(query)
 	end
 
-	# -- Locking Methods -- #
-	def lock_league
-		self.update!(locked: true)
-	end
-
-	def unlock_league
-		self.update!(locked: false)
-	end
-
 	# -- Participants Methods -- #
 	def get_commissioners
 		commissioners = self.participants.where(commissioner: true)
