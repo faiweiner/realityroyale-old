@@ -13,5 +13,24 @@
 
 class Participant < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :league
+	belongs_to :league, inverse_of: :participants
+	has_many :rounds, inverse_of: :participant, dependent: :destroy
+
+	# ========================================================== #
+	# ===== PRIVATE METHODS ==================================== #
+	# ========================================================== #
+
+	private
+
+	# ~~ Rounds Creation ~~ #
+	def create_rounds
+		self.league.season.episodes.each do |episode|
+			case self.league.type
+			when "Fantasy"
+				puts "fantasy round (episode #{episode}) for league #{self.league.name} for #{self.user.email}!"
+			when "Elimination"
+				puts "elimination round (episode #{episode}) for league #{self.league.name} for #{self.user.email}!"
+			end
+		end
+	end
 end

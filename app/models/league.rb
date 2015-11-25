@@ -24,7 +24,7 @@
 
 class League < ActiveRecord::Base
 	belongs_to :season, inverse_of: :leagues
-	has_many :participants
+	has_many :participants, inverse_of: :league, dependent: :destroy
 	has_many :users, through: :participants
 
 	# -- Updates -- #

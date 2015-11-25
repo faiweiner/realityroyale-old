@@ -2,7 +2,10 @@ require 'api_constraints'
 
 RrApi::Application.routes.draw do
 
+  resources :rounds, except: [:new, :edit]
   resources :participants, except: [:new, :edit]
+	get		'participants/:id/rounds' => 'participants#show_rounds', as: :participant_show_rounds
+  post		'participants/:id/rounds' => 'participants#create_rounds', as: :participant_create_rounds
 	# Api definition
 	namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
 		scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do

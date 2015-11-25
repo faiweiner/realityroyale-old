@@ -37,9 +37,9 @@ class Season < ActiveRecord::Base
 	private
 
 	def check_for_updates
-		if self.episode_count.present? && self.episode_count.changed?
-			puts "Need to come back here."
-		else 
+		if self.episode_count.present? && ((self.episode_count != self.episodes) || self.episode_count.changed?)
+			puts "FIXME!"
+		else
 			puts "No changes or nil."
 		end
 	end
