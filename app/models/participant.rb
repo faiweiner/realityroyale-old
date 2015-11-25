@@ -9,6 +9,7 @@
 #  score        :integer          default(0)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  favorite     :boolean          default(FALSE)
 #
 
 class Participant < ActiveRecord::Base
