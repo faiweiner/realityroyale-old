@@ -22,6 +22,8 @@
 #
 
 class Season < ActiveRecord::Base
+	include ModelHelper 	# access to toggle modules
+	
 	belongs_to :show, inverse_of: :seasons
 	has_many :leagues, inverse_of: :season, dependent: :destroy
 	has_many :episodes, inverse_of: :season, dependent: :destroy

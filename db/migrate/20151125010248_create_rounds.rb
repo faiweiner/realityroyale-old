@@ -5,7 +5,8 @@ class CreateRounds < ActiveRecord::Migration
       t.string 		:type, null: false
       t.integer 	:episode_id, null: false
       t.integer 	:score, default: 0
-
+      t.boolean		:locked, default: false
+      
       t.timestamps
     end
   end

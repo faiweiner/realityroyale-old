@@ -7,6 +7,7 @@
 #  type           :string(255)      not null
 #  episode_id     :integer          not null
 #  score          :integer          default(0)
+#  locked         :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
 #

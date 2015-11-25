@@ -13,6 +13,8 @@
 #
 
 class Episode < ActiveRecord::Base
+	include ModelHelper 	# access to toggle modules
+	
 	belongs_to :season
 	has_many :rounds
 	

@@ -73,10 +73,11 @@ ActiveRecord::Schema.define(version: 20151125010248) do
   end
 
   create_table "rounds", force: true do |t|
-    t.integer  "participant_id",             null: false
-    t.string   "type",                       null: false
-    t.integer  "episode_id",                 null: false
+    t.integer  "participant_id",                 null: false
+    t.string   "type",                           null: false
+    t.integer  "episode_id",                     null: false
     t.integer  "score",          default: 0
+    t.boolean  "locked",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
