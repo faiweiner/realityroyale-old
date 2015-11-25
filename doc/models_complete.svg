@@ -72,7 +72,7 @@
 <text text-anchor="start" x="219.24" y="-224.3" font-family="Times,serif" font-size="14.00">name :varchar(255)</text>
 <text text-anchor="start" x="219.24" y="-210.3" font-family="Times,serif" font-size="14.00">season_id :integer</text>
 <text text-anchor="start" x="219.24" y="-196.3" font-family="Times,serif" font-size="14.00">type :varchar(255)</text>
-<text text-anchor="start" x="219.24" y="-182.3" font-family="Times,serif" font-size="14.00">participant_cap :integer</text>
+<text text-anchor="start" x="219.24" y="-182.3" font-family="Times,serif" font-size="14.00">participation_cap :integer</text>
 <text text-anchor="start" x="219.24" y="-168.3" font-family="Times,serif" font-size="14.00">draft_limit :integer</text>
 <text text-anchor="start" x="219.24" y="-154.3" font-family="Times,serif" font-size="14.00">draft_date :datetime</text>
 <text text-anchor="start" x="219.24" y="-140.3" font-family="Times,serif" font-size="14.00">draft_order :varchar(255)</text>
@@ -109,7 +109,7 @@
 <text text-anchor="start" x="9.24005" y="-224.3" font-family="Times,serif" font-size="14.00">name :varchar(255)</text>
 <text text-anchor="start" x="9.24005" y="-210.3" font-family="Times,serif" font-size="14.00">season_id :integer</text>
 <text text-anchor="start" x="9.24005" y="-196.3" font-family="Times,serif" font-size="14.00">type :varchar(255)</text>
-<text text-anchor="start" x="9.24005" y="-182.3" font-family="Times,serif" font-size="14.00">participant_cap :integer</text>
+<text text-anchor="start" x="9.24005" y="-182.3" font-family="Times,serif" font-size="14.00">participation_cap :integer</text>
 <text text-anchor="start" x="9.24005" y="-168.3" font-family="Times,serif" font-size="14.00">draft_limit :integer</text>
 <text text-anchor="start" x="9.24005" y="-154.3" font-family="Times,serif" font-size="14.00">draft_date :datetime</text>
 <text text-anchor="start" x="9.24005" y="-140.3" font-family="Times,serif" font-size="14.00">draft_order :varchar(255)</text>
@@ -132,7 +132,7 @@
 <text text-anchor="start" x="229.24" y="-536.3" font-family="Times,serif" font-size="14.00">name :varchar(255)</text>
 <text text-anchor="start" x="229.24" y="-522.3" font-family="Times,serif" font-size="14.00">season_id :integer</text>
 <text text-anchor="start" x="229.24" y="-508.3" font-family="Times,serif" font-size="14.00">type :varchar(255)</text>
-<text text-anchor="start" x="229.24" y="-494.3" font-family="Times,serif" font-size="14.00">participant_cap :integer</text>
+<text text-anchor="start" x="229.24" y="-494.3" font-family="Times,serif" font-size="14.00">participation_cap :integer</text>
 <text text-anchor="start" x="229.24" y="-480.3" font-family="Times,serif" font-size="14.00">draft_limit :integer</text>
 <text text-anchor="start" x="229.24" y="-466.3" font-family="Times,serif" font-size="14.00">draft_date :datetime</text>
 <text text-anchor="start" x="229.24" y="-452.3" font-family="Times,serif" font-size="14.00">draft_order :varchar(255)</text>

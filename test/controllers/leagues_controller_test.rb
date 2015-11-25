@@ -13,7 +13,7 @@ class LeaguesControllerTest < ActionController::TestCase
 
   test "should create league" do
     assert_difference('League.count') do
-      post :create, league: { active: @league.active, draft_date: @league.draft_date, draft_limit: @league.draft_limit, draft_order: @league.draft_order, full: @league.full, league_key: @league.league_key, league_password: @league.league_password, locked: @league.locked, name: @league.name, participant_cap: @league.participant_cap, private: @league.private, published: @league.published, season_id: @league.season_id, type: @league.type }
+      post :create, league: { active: @league.active, draft_date: @league.draft_date, draft_limit: @league.draft_limit, draft_order: @league.draft_order, full: @league.full, league_key: @league.league_key, league_password: @league.league_password, locked: @league.locked, name: @league.name, participation_cap: @league.participation_cap, private: @league.private, published: @league.published, season_id: @league.season_id, type: @league.type }
     end
 
     assert_response 201
@@ -25,7 +25,7 @@ class LeaguesControllerTest < ActionController::TestCase
   end
 
   test "should update league" do
-    put :update, id: @league, league: { active: @league.active, draft_date: @league.draft_date, draft_limit: @league.draft_limit, draft_order: @league.draft_order, full: @league.full, league_key: @league.league_key, league_password: @league.league_password, locked: @league.locked, name: @league.name, participant_cap: @league.participant_cap, private: @league.private, published: @league.published, season_id: @league.season_id, type: @league.type }
+    put :update, id: @league, league: { active: @league.active, draft_date: @league.draft_date, draft_limit: @league.draft_limit, draft_order: @league.draft_order, full: @league.full, league_key: @league.league_key, league_password: @league.league_password, locked: @league.locked, name: @league.name, participation_cap: @league.participation_cap, private: @league.private, published: @league.published, season_id: @league.season_id, type: @league.type }
     assert_response 204
   end
 
