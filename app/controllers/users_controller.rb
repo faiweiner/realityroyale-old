@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 	# GET /users/1/favorites
 	# GET /users/1/favorites.json
 	def show_favorites
+		user.fetch_favorites
+		raise "stop here"
 	end	
 
 	def create

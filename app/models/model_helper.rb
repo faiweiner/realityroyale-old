@@ -36,4 +36,14 @@ module ModelHelper
 		when true; self.update!(favorite: false)
 		end
 	end
+
+	# League
+	# FIXME! Might not need, already covered in "check_capacity" method
+	def toggle_full_field
+		puts "used toggle"
+		case self.full
+		when false; self.update!(full: true) 
+		when true; self.update!(full: false)
+		end
+	end
 end

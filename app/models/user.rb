@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, :confirmable, :omniauthable,
 				 :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :participants
+	has_many :participants, inverse_of: :user
 	has_many :leagues, through: :participants
+
+	def fetch_favorites
+		favorites = Participant.where(user_id: self.id, favorite: true)
+	end
 end

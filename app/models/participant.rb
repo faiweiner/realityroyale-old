@@ -15,17 +15,20 @@
 class Participant < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
 
-	belongs_to :user
+	belongs_to :user, inverse_of: :participants
 	belongs_to :league, inverse_of: :participants
 	has_many :rounds, inverse_of: :participant, dependent: :destroy
 
-	validates_uniqueness_of :user_id, scope: :league_id
-	
-	# -- Favorites -- #
-	def fetch_favorites(user_id)
-		favorite_leagues = self.where(user_id: user_id, favorite: true)
-		return favorite_leagues
+	validates :league_id, presence: true, on: :create
+	validates :user_id, presence: true, on: :create
+	validates :check_league_capacity, on: :create
+	validates_uniqueness_of :user_id, scope: :league_id, on: :create
+
+	# -- Check Capacity -- #
+	def check_league_capacity
+		# FIXME! Do not allow creation of participation if the league is already full.
 	end
+
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #
 	# ========================================================== #
