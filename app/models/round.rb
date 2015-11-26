@@ -15,6 +15,6 @@
 class Round < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
 	
-	belongs_to :participant, inverse_of: :rounds
-	belongs_to :episode, inverse_of: :rounds
+	belongs_to 			:participant, inverse_of: :rounds
+	belongs_to 			:episode, inverse_of: :rounds
 end

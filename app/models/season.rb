@@ -29,8 +29,7 @@ class Season < ActiveRecord::Base
 	has_many :episodes, inverse_of: :season, dependent: :destroy
 	has_and_belongs_to_many :contestants, inverse_of: :seasons
 
-	before_save :check_for_updates
-	after_save :create_episodes
+	after_initialize :check_for_episodes
 
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #
@@ -38,18 +37,10 @@ class Season < ActiveRecord::Base
 	
 	private
 
-	def check_for_updates
-		puts "Checking for season updates..."
-		if self.episode_count.present? && (self.episode_count != self.episodes.count)
-			# FIXME!
-		else
-			# FIXME!
-		end
-	end
-
-	def create_episodes
-		if self.episodes.empty? # newly created season has any episodes?
-			puts "This season #{self.name} does not have any episodes"
+	def check_for_episodes
+		if self.episodes.any?		# if episodes are linked 
+			return if self.episode_count.present?	# if count is present
+			self.update!(:episode_count, self.episodes.count)
 		end
 	end
 end

@@ -82,9 +82,9 @@ class League < ActiveRecord::Base
 
 		# new league, not yet saved, no participant yet
 		return if self.id.nil?
-	 	
+	 	return if self.participation_cap.nil?
 	 	# existing league
-		available_spots = self.participation_cap - self.participants.count
+		available_spots = (self.participation_cap - self.participants.count)
 		return 'open' if available_spots > 0
 		return 'full' if available_spots == 0
 	end
