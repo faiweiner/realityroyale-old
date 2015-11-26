@@ -30,9 +30,9 @@ class League < ActiveRecord::Base
 	has_many :users, through: :participants
 
 	# -- Updates -- #
-	before_save :set_league_key_pw
+	before_save :set_league_key_pw, :update_capacity
 	after_save :add_commissioner_participation
-	after_initialize :check_capacity
+	after_initialize :update_capacity
 
 	# -- Validations on create -- #
 	validates :name, presence: true, length: {minimum: 3}, on: :create
@@ -76,6 +76,19 @@ class League < ActiveRecord::Base
 		return response
 	end
 
+	# -- Check League's Capacity -- #
+	def check_capacity
+		available_spots = 0
+
+		# new league, not yet saved, no participant yet
+		return if self.id.nil?
+	 	
+	 	# existing league
+		available_spots = self.participation_cap - self.participants.count
+		return 'open' if available_spots > 0
+		return 'full' if available_spots == 0
+	end
+
 	# -- Dropdowns -- #
 	def league_types_for_select
 		types = [
@@ -115,22 +128,6 @@ class League < ActiveRecord::Base
 		Participant.create(league_id: league_id, user_id: self.creator_id, commissioner: true) unless self.participants.where(user_id: creator_id).exists?
 	end
 
-	def participation_status
-		available_spots = 0
-		status = nil
-
-		if self.id.nil?	# new league, not yet saved, no participant yet
-			available_spots = self.participation_cap - self.participants.count + 1
-			status = 'new league'
-		else # existing league
-			available_spots = self.participation_cap - self.participants.count
-			status = 'open' if available_spots > 0
-			status = 'full' if available_spots == 0
-		end
-		return status
-
-	end
-
 	# ~~ Draft limit ~~ #
 
 	def gen_draft_limit
@@ -140,7 +137,6 @@ class League < ActiveRecord::Base
 
 	def set_draft_limit
 		# FIXME!
-		raise "holla Fantasy got me here."
 		if participation_cap != nil
 			gen_draft_limit
 		end
@@ -148,16 +144,17 @@ class League < ActiveRecord::Base
 
 	# ~~ Updating ~~ #
 
-	def check_capacity
+	def update_capacity
 		unless self.participation_cap.nil?	# proceed if the league's participation cap exists
-			puts 'Checking if league is full...'
-			puts participation_status
-			if participation_status == 'full'
-				self.update!(full: true)
-			elsif participation_status == 'open'
-				self.update!(full: false)
+			capacity = check_capacity
+			case capacity	# league's current state
+			when 'open' 
+				toggle_full_field unless self.full == false
+			when 'full'
+				toggle_full_field unless self.full == true
 			end
 		end
+
 	end
 
 end
