@@ -10,6 +10,7 @@ module ModelHelper
 		when false; self.update!(active: true)
 		when true; self.update!(active: false)
 		end
+		# FIXME! add error rescue
 	end
 
 	# Contestant, Elimination, Fantasy, League, Season and Show
@@ -19,6 +20,7 @@ module ModelHelper
 		when false; self.update!(published: true) 
 		when true; self.update!(published: false)
 		end
+		# FIXME! add error rescue
 	end
 
 	# Elimination, Fantasy, League, Roster, Round
@@ -28,6 +30,7 @@ module ModelHelper
 		when false; self.update!(locked: true) 
 		when true; self.update!(locked: false)
 		end
+		# FIXME! add error rescue
 	end
 
 	def toggle_favorite_field
@@ -35,6 +38,7 @@ module ModelHelper
 		when false; self.update!(favorite: true) 
 		when true; self.update!(favorite: false)
 		end
+		# FIXME! add error rescue
 	end
 
 	# League
@@ -45,5 +49,6 @@ module ModelHelper
 		when false; self.update!(full: true) 
 		when true; self.update!(full: false)
 		end
+		# FIXME! add error rescue
 	end
 end
