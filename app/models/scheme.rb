@@ -20,4 +20,6 @@ class Scheme < ActiveRecord::Base
 
 	# -- Validations on create -- #
 	validates :name, presence: true, on: :create
+	validates :type, presence: true, on: :create
+	validates :points, presence: true, on: :create
 end
