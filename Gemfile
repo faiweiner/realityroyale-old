@@ -20,6 +20,9 @@ gem 'sqlite3'
 # Replaces jbuilder to serialize JSON responses
 gem 'active_model_serializers'
 
+# Add pagination to ActiveModels  
+gem 'kaminari'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
