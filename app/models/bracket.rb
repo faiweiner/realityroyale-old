@@ -13,6 +13,8 @@
 #
 
 class Bracket < Round
+
+	# FIXME! Not DRY
 	def self.model_name
 		Round.model_name
 	end
