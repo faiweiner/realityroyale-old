@@ -18,6 +18,7 @@
 class Contestant < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
 	
+	has_many 								:events, inverse_of: :contestant
 	has_and_belongs_to_many :seasons, inverse_of: :contestants
-	has_many :events, inverse_of: :contestant
+	has_and_belongs_to_many :rounds, inverse_of: :contestants
 end

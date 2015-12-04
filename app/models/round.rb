@@ -17,5 +17,5 @@ class Round < ActiveRecord::Base
 	
 	belongs_to 			:participant, inverse_of: :rounds
 	belongs_to 			:episode, inverse_of: :rounds
-	has_many				:contestants
+	has_and_belongs_to_many :contestants, inverse_of: :rounds
 end
