@@ -4,6 +4,7 @@ class CreateEvents < ActiveRecord::Migration
 			t.integer :contestant_id
 			t.integer :episode_id
 			t.integer :scheme_id
+			t.text		:type
 			t.timestamps
 		end
 

@@ -43,6 +43,9 @@ class League < ActiveRecord::Base
 	# ===== PUBLIC METHODS AVAILABLE (client/driven logic) ===== #
 	# ========================================================== #
 
+	def self.types
+		%w(Fantasy Elimination)
+	end
 	# -- Search Methods -- #
 	def self.search_by_key(query)
 		joins(:season, :users).where(league_key: query).uniq.order('created_at DESC')
@@ -158,3 +161,22 @@ class League < ActiveRecord::Base
 	end
 
 end
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# ===== League's subclasses ================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+class Fantasy < League
+	before_save :set_draft_limit
+	
+	def self.model_name
+		League.model_name
+	end
+end
+
+class Elimination < League
+	def self.model_name
+		League.model_name
+	end
+end
+
