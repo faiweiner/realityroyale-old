@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-	before_action :set_show, only: [:show, :update, :destroy]
+	before_action :set_show, only: [:display, :display_children, :update, :destroy]
 	before_action :authenticate_member!, only: [:create, :update, :destroy]
 
 	# GET /shows
@@ -23,8 +23,14 @@ class ShowsController < ApplicationController
 
 	# GET /shows/1
 	# GET /shows/1.json
-	def show
+	def display
 		render json: @show
+	end
+
+	# GET /shows/1/seasons
+	# GET /shows/1/seasons.json
+	def display_children
+		@show.seasons
 	end
 
 	# PATCH/PUT /shows/1
@@ -36,6 +42,7 @@ class ShowsController < ApplicationController
 			render json: @show.errors, status: :unprocessable_entity
 		end
 	end
+
 
 	# DELETE /shows/1
 	# DELETE /shows/1.json
