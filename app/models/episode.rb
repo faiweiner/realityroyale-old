@@ -16,7 +16,8 @@ class Episode < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
 	
 	belongs_to :season
-	has_many :rounds
+	has_many :rounds, inverse_of: :episode
+	has_many :events, inverse_of: :contestant
 	
 	after_save :update_season_episode_count
 

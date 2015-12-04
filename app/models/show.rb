@@ -12,6 +12,8 @@
 #
 
 class Show < ActiveRecord::Base
+	include ModelHelper 	# access to toggle modules
+	
 	has_many :seasons, inverse_of: :show, dependent: :destroy
 	has_many :episodes, through: :seasons
 	has_many :schemes, inverse_of: :show

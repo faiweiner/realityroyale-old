@@ -38,6 +38,11 @@ class Season < ActiveRecord::Base
 	private
 
 	def check_for_episodes
+		# Each season must have one or more episodes linked to it. Site admin
+		# is expected to provide an episode count (estimated if actual number 
+		# is not available). As soon as an episode is created for the season,
+		# the season's episode_count number should be updated automatically.
+		
 		if self.episodes.any?		# if episodes are linked 
 			return if self.episode_count.present?	# if count is present
 			self.update!(:episode_count, self.episodes.count)

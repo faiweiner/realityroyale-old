@@ -17,6 +17,7 @@ class Scheme < ActiveRecord::Base
 	include ModelHelper
 
 	belongs_to :show, inverse_of: :schemes
+	has_many :events, inverse_of: :contestant
 
 	# -- Validations on create -- #
 	validates :name, presence: true, on: :create
