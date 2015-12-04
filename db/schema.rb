@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125221745) do
+ActiveRecord::Schema.define(version: 20151204015937) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -26,12 +26,23 @@ ActiveRecord::Schema.define(version: 20151125221745) do
     t.datetime "updated_at"
   end
 
+  create_table "contestants_rounds", id: false, force: true do |t|
+    t.integer "contestant_id"
+    t.integer "round_id"
+  end
+
+  add_index "contestants_rounds", ["contestant_id"], name: "index_contestants_rounds_on_contestant_id"
+  add_index "contestants_rounds", ["round_id"], name: "index_contestants_rounds_on_round_id"
+
   create_table "contestants_seasons", id: false, force: true do |t|
     t.integer "contestant_id"
     t.integer "season_id"
     t.string  "status"
     t.boolean "active",        default: true
   end
+
+  add_index "contestants_seasons", ["contestant_id"], name: "index_contestants_seasons_on_contestant_id"
+  add_index "contestants_seasons", ["season_id"], name: "index_contestants_seasons_on_season_id"
 
   create_table "episodes", force: true do |t|
     t.integer  "season_id",                      null: false
