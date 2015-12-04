@@ -15,7 +15,7 @@
 class Episode < ActiveRecord::Base
 	include ModelHelper 	# access to toggle modules
 	
-	belongs_to :season
+	belongs_to :season, inverse_of: :episodes
 	has_many :rounds, inverse_of: :episode
 	has_many :events, inverse_of: :contestant
 	
@@ -27,13 +27,13 @@ class Episode < ActiveRecord::Base
 	
 	private
 
-	def save_shout
-	end
-
 	def update_season_episode_count
-		current_count = self.season.episodes.count
-		attribute_count = self.season.episode_count
-		if current_count != attribute_count
+		# Only executes AFTER an episode has been created
+		current_count = self.season.episodes.count if self.season.episodes.count > 0
+		attribute_count = self.season.episode_count if self.season.episode_count.present?
+
+		# If the number of recorded episodes exceed season's episode_count attribute
+		if current_count > attribute_count
 			self.season.update!(episode_count: current_count)
 		end
 	end

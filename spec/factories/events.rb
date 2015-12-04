@@ -6,6 +6,7 @@
 #  contestant_id :integer
 #  episode_id    :integer
 #  scheme_id     :integer
+#  type          :text
 #  created_at    :datetime
 #  updated_at    :datetime
 #

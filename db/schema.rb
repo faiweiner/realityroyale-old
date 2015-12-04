@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204022237) do
+ActiveRecord::Schema.define(version: 20151204070457) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20151204022237) do
     t.integer  "contestant_id"
     t.integer  "episode_id"
     t.integer  "scheme_id"
+    t.text     "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -129,7 +130,7 @@ ActiveRecord::Schema.define(version: 20151204022237) do
     t.integer  "network"
     t.datetime "premiere_date"
     t.datetime "finale_date"
-    t.integer  "episode_count"
+    t.integer  "episode_count",  default: 0,     null: false
     t.boolean  "active",         default: false
     t.boolean  "published",      default: false
     t.datetime "created_at",                     null: false
