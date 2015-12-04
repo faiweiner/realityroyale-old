@@ -18,10 +18,52 @@ class Event < ActiveRecord::Base
 	validates :contestant_id, presence: true, on: :create
 	validates :episode_id, presence: true, on: :create	
 	validates :scheme_id, presence: true, on: :create	
-	
+
+	# ========================================================== #
+	# ===== PUBLIC METHODS AVAILABLE (client/driven logic) ===== #
+	# ========================================================== #
+
+	def self.types
+		%w(Altercation Competition Debauchery Extracurricular Survival)
+	end
+
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #
 	# ========================================================== #
 	
 	private
+end
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# ===== League's subclasses ================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+class Altercation < Event	
+	def self.model_name
+		Event.model_name
+	end
+end
+
+class Competition < Event
+	def self.model_name
+		Event.model_name
+	end
+end
+
+class Debauchery < Event
+	def self.model_name
+		Event.model_name
+	end
+end
+
+class Extracurricular < Event
+	def self.model_name
+		Event.model_name
+	end
+end
+
+class Survival < Event
+	def self.model_name
+		Event.model_name
+	end
 end

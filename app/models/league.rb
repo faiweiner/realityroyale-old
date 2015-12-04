@@ -46,6 +46,7 @@ class League < ActiveRecord::Base
 	def self.types
 		%w(Fantasy Elimination)
 	end
+	
 	# -- Search Methods -- #
 	def self.search_by_key(query)
 		joins(:season, :users).where(league_key: query).uniq.order('created_at DESC')
