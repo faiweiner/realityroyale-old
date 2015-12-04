@@ -93,14 +93,15 @@ class League < ActiveRecord::Base
 		return 'full' if available_spots == 0
 	end
 
-	# -- Dropdowns -- #
-	def league_types_for_select
-		types = [
-			['Elimination', 'Fantasy'],
-			['Elimination', 'Elimination']
-		]
+	def round_type
+		# FIXME! Need to make this stateless somehow, for when League expands to more types.
+		if self.type == 'Fantasy'
+			round_type = 'Roster'
+		elsif self.type == 'Elimination'
+			round_type = 'Bracket'
+		end
 	end
-		
+
 	# ========================================================== #
 	# ===== PRIVATE METHODS ==================================== #
 	# ========================================================== #
@@ -158,7 +159,6 @@ class League < ActiveRecord::Base
 				toggle_full_field unless self.full == true
 			end
 		end
-
 	end
 
 end
@@ -170,12 +170,15 @@ end
 class Fantasy < League
 	before_save :set_draft_limit
 	
+	# FIXME! Not DRY
 	def self.model_name
 		League.model_name
 	end
 end
 
 class Elimination < League
+
+	# FIXME! Not DRY
 	def self.model_name
 		League.model_name
 	end
