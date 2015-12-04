@@ -30,10 +30,10 @@ class Episode < ActiveRecord::Base
 	def update_season_episode_count
 		# Only executes AFTER an episode has been created
 		current_count = self.season.episodes.count if self.season.episodes.count > 0
-		attribute_count = self.season.episode_count if self.season.episode_count.present?
+		attribute_count = self.season.episode_count
 
 		# If the number of recorded episodes exceed season's episode_count attribute
-		if current_count > attribute_count
+		if current_count && current_count > attribute_count
 			self.season.update!(episode_count: current_count)
 		end
 	end
